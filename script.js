@@ -1,19 +1,19 @@
 
-// //test fetch to search for any artist using a prompt -- even though I know we're not supposed to use prompts lol 
-// var artist = prompt("Please enter artist name")
+//test fetch to search for any artist using a prompt -- even though I know we're not supposed to use prompts lol 
+var artist = prompt("Please enter artist name")
 
-// fetch("https://theaudiodb.com/api/v1/json/2/search.php?s=" + artist)
-// .then(function(response) {
-//     return response.json();
-// })
-// .then(function(data) {
-//     var artists = data["artists"]
-//     console.log(artists);
-//     console.log(artists[0].strGenre);
-// });
+fetch("https://theaudiodb.com/api/v1/json/2/search.php?s=" + artist)
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+    var artists = data["artists"]
+    console.log(artists);
+    console.log(artists[0].strGenre);
+});
 
 
-//test fetch to search for "superstition" by Stevie Wonder
+//test fetch to search for any lyrics user inputs
 var inputLyrics = prompt("Please enter lyrics to search for");
 //line 19 replaces spaces with underscores but I don't think we actually need to manually do that
 // inputLyrics = inputLyrics.replace(/ /g,"_");
