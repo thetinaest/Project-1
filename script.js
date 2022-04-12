@@ -4,7 +4,6 @@ var selection = document.getElementById("selection");
 
 document.getElementById("form").addEventListener("submit", function(event) {
   event.preventDefault();
-  // document.getElementById("searchbar").value = '';
   var userInput = document.getElementById("searchbar").value;
   document.getElementById("searchbar").value = '';
   userSearch = userInput.replace(/ /g,"_");
@@ -23,30 +22,37 @@ document.getElementById("form").addEventListener("submit", function(event) {
       })
       .then(function(data) {
         var song = data['message'].body.track_list[0].track.track_name;
-        // save song to localstorage
+        var artist = data['message'].body.track_list[0].track.artist_name
+        // save song and artist to localstorage
         var savedSearches = localStorage.getItem("songs");
         if (!savedSearches) {
-          localStorage.setItem("songs", JSON.stringify([{song: song}]));
+          localStorage.setItem("songs", JSON.stringify([{song: song, artist: artist}]));
           return;
         }
         savedSearches = JSON.parse(savedSearches);
-        savedSearches.push({song: song});
+        savedSearches.push({song: song, artist: artist});
         localStorage.setItem("songs", JSON.stringify(savedSearches));
-        console.log(savedSearches);
       });
   }
 
     if (selection.value == "byArtist") {  
-    console.log("artist search");
-    console.log(userSearch);
     fetch("https://theaudiodb.com/api/v1/json/2/search.php?s=" + encodeURI(userSearch))
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
-        var artists = data["artists"]
-        console.log(artists);
-        // console.log(artists[0].strGenre);
+        var artists = data["artists"];
+        var artist = artists[0].strArtist;
+        var genre = artists[0].strGenre;
+        //save artist and genre to localstorage
+        var savedArtist = localStorage.getItem("artists");
+        if (!savedArtist) {
+          localStorage.setItem("artists", JSON.stringify([{artist: artist, genre: genre}]));
+          return;
+        }
+        savedArtist = JSON.parse(savedArtist);
+        savedArtist.push({artist: artist, genre: genre});
+        localStorage.setItem("artists", JSON.stringify(savedArtist));
     });
   }
 });
