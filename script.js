@@ -6,7 +6,7 @@ document.getElementById("form").addEventListener("submit", function(event) {
   event.preventDefault();
   // document.getElementById("searchbar").value = '';
   var userInput = document.getElementById("searchbar").value;
-  console.log(userInput);
+  document.getElementById("searchbar").value = '';
   userSearch = userInput.replace(/ /g,"_");
 
 
@@ -19,13 +19,21 @@ document.getElementById("form").addEventListener("submit", function(event) {
   
     fetch(urlWithProxy)
       .then(function(response) {
-        return response.json()
+        return response.json();
       })
       .then(function(data) {
-        console.log(data);
-        var test = data['message'].body.track_list[0].track.track_name;
-        console.log(test);
-      })
+        var song = data['message'].body.track_list[0].track.track_name;
+        // save song to localstorage
+        var savedSearches = localStorage.getItem("songs");
+        if (!savedSearches) {
+          localStorage.setItem("songs", JSON.stringify([{song: song}]));
+          return;
+        }
+        savedSearches = JSON.parse(savedSearches);
+        savedSearches.push({song: song});
+        localStorage.setItem("songs", JSON.stringify(savedSearches));
+        console.log(savedSearches);
+      });
   }
 
     if (selection.value == "byArtist") {  
