@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Tunalyze</title>
 </head>
 <body>
-    <header>
-        <h1>Tunalyze</h1>
-        <div>
+    <header class="navbar">
+        <div class="navbar-brand">
+            <figure class="image is-128x128">
+                <img class="is-rounded" src="assets/images/Tunalyze Logo Notes Cropped.png">
+              </figure>
+            <p class="title is-1 is-spaced">Tunalyze</p>
+            <p class="subtitle is-5">Helping you find and save your music</p>
+        </div>
+        <div class="navbar-menu navbar-end">
             <form id="form">
                 <input id="searchbar" onkeyup="" type="text" name="search" placeholder="Search">
                 <select id="selection">
@@ -22,11 +28,62 @@
             </form>
         </div>
     </header>
-    <div>
-        <div>
+    <article class="message">
+        <div class="message-header">
+          <p>Tunalyze Your Life!</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          <strong>Need something to listen to?</strong>  Type a few lyrics into the search bar, select the song you want to listen to, and save it to your library so you can listen to it now or later.
+        </div>
+    </article>
+        <div class="column has-background-link has-text-white has-text-centered has-text-bold is-size-1">
+          <p class="bd-notification is-info">Search Results</p>
+          <div class="columns is-mobile">
+            <div class="column">
+              <p class="bd-notification is-info is-size-2">Song Title</p>
+              <ul class="has-background-warning has-text-black is-size-3">
+                  <li>Beatles from Seattle</li>
+              </ul>
+            </div>
+            <div class="column">
+              <p class="bd-notification is-info is-size-2">Artist</p>
+              <ul class="has-background-warning has-text-black is-size-3">
+                <li>Beatles from Seattle</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+            <br>
+            <br>
+        <div class="column has-background-link has-text-white has-text-centered has-text-bold is-size-1">
+          <p class="bd-notification is-danger">My Library</p>
+          <div class="columns is-mobile">
+            <div class="column is-half">
+              <p class="bd-notification is-danger is-size-2">Song Title/Artist</p>
+              <ul class="has-background-warning has-text-black is-size-3">
+                <li>Beatles from Seattle</li>
+            </ul>
+            </div>
+            <div class="column">
+              <p class="bd-notification is-danger is-size-2">Genre</p>
+              <ul class="has-background-warning has-text-black is-size-3">
+                <li>Beatles from Seattle</li>
+            </ul>
+            </div>
+            <div class="column">
+              <p class="bd-notification is-danger">Artist Pic</p>
+              <ul class="has-background-warning has-text-black is-size-3">
+                <li>Beatles from Seattle</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+        <div class="section">
             <h2>Search Results</h2>
         </div>
-        <div>
+        <div class="section">
             <h2>Saved Music</h2>
         </div>
     </div>
