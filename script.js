@@ -15,7 +15,7 @@ document.getElementById("form").addEventListener("submit", function(event) {
     var apiURL = "http://api.musixmatch.com/ws/1.1/track.search" 
     var apiURLAndParams = apiURL + encodeURIComponent(params)
     var urlWithProxy = "https://octoproxymus.herokuapp.com?secret=walrus&url=" + apiURLAndParams
-  
+
     fetch(urlWithProxy)
       .then(function(response) {
         return response.json();
