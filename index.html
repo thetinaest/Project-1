@@ -8,25 +8,28 @@
     <title>Tunalyze</title>
 </head>
 <body>
-    <header class="navbar is-justify-content-space-between">
-        <div class="navbar-brand">
-            <figure class="image is-128x128">
-                <img class="is-rounded" src="assets/images/Tunalyze Logo Notes Cropped.png">
-              </figure>
-            <p class="title is-size-1-desktop is-size-3-tablet is-size-3-mobile is-spaced">Tunalyze</p>
-        </div>
-        <div class="is-justify-content-right">
-            <form id="form">
-                <input id="searchbar" onkeyup="" type="text" name="search" placeholder="Find your music">
-                <select id="selection">
-                    <option  selected="true" disabled>Select Option</option>
-                    <option value="byLyrics">by Lyrics</option>
-                    <option value="byArtist">by Artist</option>
-                </select>
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    </header>
+  <header class="navbar is-flex is-flex-direction-column is-justify-content-space-between">
+    <div class="is-flex is-flex-direction-row is-justify-content-center">
+        <figure class="image is-256x256">
+            <img class="is-rounded" src="assets/images/Tunalyze Logo Notes Cropped.png">
+        </figure>
+    </div>
+    <div class="is-flex is-flex-direction-row is-justify-content-center is-align-items-center">
+        <p class="title is-size-1 is-spaced">Tunalyze</p>
+    </div>
+    <br>
+    <div class="is-flex is-flex-direction-row is-justify-content-center">
+        <form id="form">
+            <input id="searchbar" onkeyup="" type="text" name="search" placeholder="Find your music">
+            <select id="selection">
+                <option  selected="true" disabled>Select Option</option>
+                <option value="byLyrics">by Lyrics</option>
+                <option value="byArtist">by Artist</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</header>
     <article class="message">
         <div class="message-header">
           <p>Tunalyze Your Life!</p>
@@ -48,12 +51,27 @@
     <div class="container is-fluid">
       <div class="notification is-link has-text-centered has-text-bold is-size-1">
         My Library
-        <p class="is-size-3 has-background-grey-light has-text-black">Song Title/Artist/Genre:</p>
+        <p class="is-size-3 has-background-grey-light has-text-black">Song Title/Artist/Genre</p>
         <ul id="my-library" class="has-background-warning has-text-black is-size-3">
             <li id="initialLi">Search for music to save results in library!</li>
         </ul>
       </div>
     </div>
+      <br>
+      <br>
+    <footer class="footer has-background-grey-dark has-text-warning-light">
+      <div class="content has-text-centered">
+        <p>
+          Tunalyze designed by: <a class="has-text-warning" href="https://github.com/andritjm" target="_blank">James Andritsch</a>, <a class="has-text-warning" href="https://github.com/thetinaest" target="_blank">Kristina Brennan</a>, <a class="has-text-warning" href="https://github.com/kristiboo03" target="_blank">Kristi Garcia-Stebins</a>, <a class="has-text-warning" href="https://github.com/Alex-Kress" target="_blank">Alex Kress</a>
+        </p>
+        <p>
+          Interested in tuna advocacy? Checkout the <a class="has-text-warning" href="https://www.iss-foundation.org/" target="_blank">International Seafood Sustainability Foundation</a>
+        </p>
+        <p>
+          Big music fan?  Tunalyze gives a competitve edge in the daily music challenge game <a class="has-text-warning" href="https://www.heardle.app/" target="_blank">Heardle</a>
+        </p>
+      </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
