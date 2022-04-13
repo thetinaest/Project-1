@@ -31,6 +31,7 @@ document.getElementById("form").addEventListener("submit", function(event) {
         document.getElementById('initialLi').setAttribute("style", "display:none;");
         //create li element to display current search result in myLibrary
         var li = document.createElement('li');
+        var hr = document.createElement('hr');
         li.innerText = 'Song: "' + song + '" by ' + artist;
         //show results in search results section
         songLi.innerText = 'Song: "' + song + '" by ' + artist;
@@ -38,6 +39,7 @@ document.getElementById("form").addEventListener("submit", function(event) {
         //append both li items to respective spots
         searchResults.appendChild(songLi);
         myLibrary.appendChild(li);
+        myLibrary.appendChild(hr);
         // save song and artist to localstorage
         var savedSearches = localStorage.getItem("songs");
         if (!savedSearches) {
@@ -70,9 +72,11 @@ document.getElementById("form").addEventListener("submit", function(event) {
         document.getElementById('initialLi').setAttribute("style", "display:none;");
         //create li element to display current search result in myLibrary
         var li = document.createElement('li');
+        var hr = document.createElement('hr');
         li.innerText = 'Artist: ' + artist + ' - Genre: ' + genre;
         //append li items to myLibrary
         myLibrary.appendChild(li);
+        myLibrary.appendChild(hr);
         //save artist and genre to localstorage
         var savedArtist = localStorage.getItem("artists");
         if (!savedArtist) {
@@ -95,8 +99,10 @@ function displayLibrary() {
     document.getElementById('initialLi').setAttribute("style", "display: none;");
     for (var i=0; i < savedSearches.length; i++) {
       var li = document.createElement('li');
+      var hr = document.createElement('hr');
       li.innerText = 'Song: "' + savedSearches[i].song + '" by: ' + savedSearches[i].artist;
       myLibrary.appendChild(li);
+      myLibrary.appendChild(hr);
     }
   }
 
@@ -104,8 +110,10 @@ function displayLibrary() {
     document.getElementById('initialLi').setAttribute("style", "display: none;");
     for (var i=0; i < savedArtist.length; i++) {
       var li = document.createElement('li');
+      var hr = document.createElement('hr');
       li.innerText = 'Artist: ' + savedArtist[i].artist + ' - Genre: ' + savedArtist[i].genre;
       myLibrary.appendChild(li);
+      myLibrary.appendChild(hr);
     }
   }
 
