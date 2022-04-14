@@ -3,10 +3,12 @@ var selection = document.getElementById("selection");
 var searchResults = document.getElementById('search-results');
 var myLibrary = document.getElementById('my-library');
 var searchType = document.getElementById('resultType');
+var error = document.getElementById('error');
 
 
 document.getElementById("form").addEventListener("submit", function(event) {
   event.preventDefault();
+  error.setAttribute("style", "display: none");
   var userInput = document.getElementById("searchbar").value;
   document.getElementById("searchbar").value = '';
   userSearch = userInput.replace(/ /g,"_");
@@ -49,6 +51,9 @@ document.getElementById("form").addEventListener("submit", function(event) {
         savedSearches = JSON.parse(savedSearches);
         savedSearches.push({song: song, artist: artist});
         localStorage.setItem("songs", JSON.stringify(savedSearches));
+      })
+      .catch(function(){
+        error.setAttribute("style", "display:block;");
       });
   }
 
@@ -86,6 +91,9 @@ document.getElementById("form").addEventListener("submit", function(event) {
         savedArtist = JSON.parse(savedArtist);
         savedArtist.push({artist: artist, genre: genre});
         localStorage.setItem("artists", JSON.stringify(savedArtist));
+    })
+    .catch(function(){
+      error.setAttribute("style", "display:block;");
     });
   }
 });
